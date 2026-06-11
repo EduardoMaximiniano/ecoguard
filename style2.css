@@ -1,0 +1,388 @@
+/* Paleta de Cores Ocean Blue Serenity */
+:root {
+    --branco-gelo: #f4f6f9;
+    --azul-profundo: #000040;
+    --azul-marinho: #003380;
+    --azul-vibrante: #0066cc;
+    --ciano-medio: #33ccff;
+    --texto-escuro: #1a202c;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--branco-gelo);
+    color: var(--texto-escuro);
+}
+
+header {
+    background-color: var(--azul-profundo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    height: 80px;
+}
+
+.logo-header {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ciano-medio);
+    letter-spacing: 1.5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+nav a:hover { color: var(--ciano-medio); }
+
+/* Hero Section Ajustada */
+.hero-full {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+}
+
+.imagem-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55); /* Escureci um pouco mais para a frase branca ler bem */
+}
+
+/* Contêiner que centraliza Logo + Frase */
+.overlay-central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 900px;
+}
+
+.titulo-principal {
+    font-size: 80px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilização da Frase dentro da Imagem */
+.texto-filosofico-hero p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--light-cyan, #a6f2ff); /* Um ciano bem clarinho para suavizar */
+    line-height: 1.4;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.texto-filosofico-hero cite {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--ciano-medio);
+    font-style: normal;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Área de cards abaixo */
+/* ==========================================================================
+   Ajustes e Novas Seções (Objetivo, Valores e Índices)
+   ========================================================================== */
+
+.container-conteudo {
+    max-width: 1000px; /* Aumentei um pouco para caber os grids perfeitamente */
+    margin: 0 auto;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px; /* Mais espaço entre as grandes seções */
+}
+
+/* Estrutura de blocos de seção */
+.secao-bloco {
+    width: 100%;
+}
+
+.secao-bloco h2 {
+    color: var(--azul-profundo);
+    font-size: 32px;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.secao-bloco p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--texto-escuro);
+    margin: 0;
+}
+
+.texto-destaque {
+    font-size: 18px !important;
+    line-height: 1.8;
+    color: #2d3748;
+}
+
+.linha-decorativa {
+    width: 60px;
+    height: 4px;
+    background-color: var(--azul-vibrante);
+    margin-bottom: 12px;
+    border-radius: 2px;
+}
+
+/* Grid de Valores (3 colunas lado a lado) */
+.grid-valores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.card-valor {
+    background-color: var(--azul-profundo);
+    padding: 30px;
+    border-radius: 12px;
+    border-top: 4px solid var(--ciano-medio);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.card-valor:hover {
+    transform: translateY(-5px);
+}
+
+.card-valor h3 {
+    color: var(--ciano-medio);
+    margin: 0 0 12px 0;
+    font-size: 20px;
+}
+
+.card-valor p {
+    color: #e2e8f0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Grid de Índices e Métricas */
+.grid-indices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.indice-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.numero-indice {
+    display: block;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--azul-vibrante);
+    margin-bottom: 10px;
+}
+
+.legenda-indice {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Responsividade Básica (para não quebrar em telas menores) */
+@media (max-width: 768px) {
+    .grid-valores, .grid-indices {
+        grid-template-columns: 1fr;
+    }
+    header {
+        padding: 0 20px;
+    }
+}
+
+/* Estilização da Seção de Instruções e Botão */
+.grid-instrucoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.card-instrucao {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.02);
+}
+
+.numero-passo {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background-color: var(--azul-vibrante);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.card-instrucao h3 {
+    color: var(--azul-profundo);
+    font-size: 18px;
+    margin: 10px 0 10px 0;
+}
+
+.card-instrucao p {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.container-btn-denuncia {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#btn-ir-denuncia {
+    padding: 18px 40px;
+    background-color: var(--azul-profundo);
+    color: white;
+    border: 2px solid var(--azul-vibrante);
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+#btn-ir-denuncia:hover {
+    background-color: var(--azul-vibrante);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 102, 204, 0.3);
+}
+
+@media (max-width: 768px) {
+    .grid-instrucoes { grid-template-columns: 1fr; gap: 35px; }
+}
+
+/* ==========================================================================
+   Estilização do Footer Comum (Contatos EcoGuard e SP)
+   ========================================================================== */
+footer {
+    background-color: var(--azul-profundo);
+    color: #ffffff;
+    padding: 50px 20px 20px 20px;
+    margin-top: 80px;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 4px solid var(--azul-vibrante);
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Coluna de órgãos públicos ligeiramente maior */
+    gap: 40px;
+}
+
+.footer-coluna h3 {
+    color: var(--ciano-medio);
+    font-size: 18px;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-coluna p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cbd5e0;
+    margin: 0 0 15px 0;
+}
+
+.contato-ficticio {
+    display: block;
+    font-size: 14px;
+    color: var(--azul-claro);
+    margin-bottom: 5px;
+}
+
+.footer-coluna ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-coluna ul li {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #e2e8f0;
+    margin-bottom: 8px;
+}
+
+.footer-coluna ul li strong {
+    color: var(--ciano-medio);
+}
+
+/* Faixa inferior de direitos autorais */
+.footer-creditos {
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-creditos p {
+    font-size: 12px;
+    color: #a0aec0;
+    margin: 0;
+}
+
+/* Ajuste rápido para celulares */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

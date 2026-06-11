@@ -1,0 +1,223 @@
+/* Importando Paleta Ocean Blue Serenity */
+:root {
+    --branco-gelo: #f4f6f9;
+    --azul-profundo: #000040;
+    --azul-marinho: #003380;
+    --azul-vibrante: #0066cc;
+    --ciano-medio: #33ccff;
+    --texto-escuro: #1a202c;
+    --erro: #e53e3e;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--branco-gelo);
+    color: var(--texto-escuro);
+}
+
+header {
+    background-color: var(--azul-profundo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    height: 70px;
+    border-bottom: 2px solid var(--azul-vibrante);
+}
+
+.logo-header {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ciano-medio);
+    letter-spacing: 1.5px;
+}
+
+.sub-header-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Container do Formulário */
+.container-denuncia {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.form-wrapper {
+    background-color: white;
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.form-wrapper h2 {
+    color: var(--azul-profundo);
+    margin: 0 0 10px 0;
+    font-size: 26px;
+}
+
+.instrucao-form {
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Grupos de inputs */
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.campo-grupo label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--azul-marinho);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: var(--texto-escuro);
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--azul-vibrante);
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
+}
+
+/* Inputs Duplos na Mesma Linha (Coordenadas) */
+.linha-dupla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Customização do Select */
+select {
+    cursor: pointer;
+    background-color: white;
+}
+
+/* Botoes */
+.botoes-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 35px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 25px;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#btn-cancelar {
+    background-color: transparent;
+    color: #718096;
+    border: 2px solid #cbd5e1;
+}
+
+#btn-cancelar:hover {
+    background-color: #f7fafc;
+    color: var(--texto-escuro);
+    border-color: #a0aec0;
+}
+
+#btn-enviar-denuncia {
+    background-color: var(--azul-vibrante);
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#btn-enviar-denuncia:hover {
+    background-color: var(--azul-marinho);
+    box-shadow: 0 5px 15px rgba(0, 51, 128, 0.2);
+}
+
+@media (max-width: 480px) {
+    .linha-dupla { grid-template-columns: 1fr; gap: 0; }
+    .botoes-container { flex-direction: column-reverse; }
+    button { width: 100%; }
+}
+
+/* Adicione ou substitua estas regras no seu arquivo style-denuncia.css */
+
+/* Estilização da área de Upload */
+.upload-container {
+    border: 2px dashed var(--azul-vibrante);
+    background-color: var(--branco-gelo);
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.upload-container:hover {
+    background-color: #e2e8f0;
+}
+
+/* Esconde o botão padrão feio do navegador e estica o input por toda a caixa */
+.upload-container input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-texto {
+    font-size: 14px;
+    color: var(--azul-marinho);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Ajuste na responsividade da nova estrutura */
+@media (max-width: 480px) {
+    .form-wrapper {
+        padding: 20px;
+    }
+    .botoes-container {
+        flex-direction: column-reverse;
+    }
+    button {
+        width: 100%;
+    }
+}

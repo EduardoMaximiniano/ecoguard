@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGuard - Registrar Denúncia Ambiental</title>
+    <link rel="stylesheet" href="style-denuncia.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<script src="script.js"></script>
+    <header>
+        <div class="logo-header">EcoGuard</div>
+        <div class="sub-header-title">Módulo de Fiscalização Cidadã</div>
+    </header>
+
+    <main class="container-denuncia">
+        <div class="form-wrapper">
+            <h2>Nova Notificação de Irregularidade</h2>
+            <p class="instrucao-form">Preencha os dados abaixo com o que você observou no local. Ajude-nos a proteger as águas de SP.</p>
+            
+            <form id="form-denuncia-ambiental" enctype="multipart/form-data">
+                
+                <div class="campo-grupo">
+                    <label for="nome-rio">Nome do Rio / Córrego (Se souber)</label>
+                    <input type="text" id="nome-rio" placeholder="Ex: Rio Pinheiros, Córrego do Bairro...">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="municipio-rio">Cidade / Município *</label>
+                    <input type="text" id="municipio-rio" placeholder="Em qual cidade de SP isso aconteceu?" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="localizacao-casual">Endereço Aproximado ou Ponto de Referência *</label>
+                    <input type="text" id="localizacao-casual" placeholder="Ex: Próximo ao número 500 da Av. Paulista, perto da ponte..." required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="tipo-poluicao">O que está acontecendo no local? *</label>
+                    <select id="tipo-poluicao" required>
+                        <option value="" disabled selected>Selecione uma opção...</option>
+                        <option value="esgoto">Esgoto ou resíduos industriais sendo jogados na água</option>
+                        <option value="lixo">Acúmulo de Lixo, Entulho ou Descarte de Objetos</option>
+                        <option value="desmatamento">Derrubada de árvores perto da margem (Mata Ciliar)</option>
+                        <option value="quimico">Água com cor estranha, espuma ou cheiro muito forte</option>
+                    </select>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="fotos-evidencia">Anexar Fotos do Local (Evidências) *</label>
+                    <div class="upload-container">
+                        <input type="file" id="fotos-evidencia" accept="image/*" multiple required>
+                        <p class="upload-texto">Clique aqui ou arraste as imagens para enviar (Máx. 3 fotos)</p>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="descricao-crime">Informações Adicionais (Opcional)</label>
+                    <textarea id="descricao-crime" rows="4" placeholder="Conte mais detalhes sobre a situação para ajudar a equipe de fiscalização..."></textarea>
+                </div>
+
+                <div class="botoes-container">
+                    <button type="button" id="btn-cancelar" onclick="window.history.back()">Voltar</button>
+                    <button type="submit" id="btn-enviar-denuncia">Protocolar Denúncia</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

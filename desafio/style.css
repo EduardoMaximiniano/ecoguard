@@ -1,0 +1,136 @@
+/* Paleta Ocean Blue Serenity aplicada */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9; /* O azul mais escuro e profundo da imagem */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    margin: 0;
+}
+
+/* Container do Formulário */
+.cadastro-container {
+    background-color: #003380; /* Segundo tom da paleta (azul intermediário) */
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid #0044cc; /* Borda sutil para dar acabamento */
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+}
+
+/* Títulos e Textos */
+.cadastro-header h2 {
+    color: #a6f2ff; /* O azul mais claro e radiante da ponta direita */
+    margin: 0 0 8px 0;
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+}
+
+.cadastro-header p {
+    color: #33ccff; /* Tom de ciano médio da paleta */
+    font-size: 14px;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+/* Inputs e Labels */
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: #a6f2ff;
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 22px;
+    background-color: #000040; /* Fundo dos inputs usa o tom mais escuro */
+    border: 2px solid #0066cc; /* Azul intermediário vibrante */
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #33ccff; /* Brilha no tom ciano médio ao focar */
+    box-shadow: 0 0 8px rgba(51, 204, 255, 0.2);
+}
+
+/* Botão de Ação Principal */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #0099ff; /* O azul vibrante do meio da paleta */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #33ccff; /* Transiciona para o azul mais claro ao passar o mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(51, 204, 255, 0.4);
+}
+
+button:disabled {
+    background-color: #0044aa;
+    color: #0066cc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Lista de Usuários (Feedback) */
+.feedback-sistema {
+    margin-top: 35px;
+    border-top: 1px solid #0066cc;
+    padding-top: 25px;
+}
+
+.feedback-sistema h3 {
+    font-size: 15px;
+    color: #a6f2ff;
+    margin-bottom: 18px;
+}
+
+#lista-usuarios {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.usuario-card {
+    background-color: #000040;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border-left: 4px solid #0099ff;
+}
+
+.usuario-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.usuario-card strong {
+    color: #33ccff;
+}
