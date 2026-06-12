@@ -36,13 +36,13 @@ botao.addEventListener('click', (evento) => {
             endereco: enderecoo
         }
 
-        fetch('http://localhost:3000/cadastrar', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(novoUsuario)
-        })
+       fetch('https://ecoguard-2rnw.onrender.com/api/cadastrar', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(novoUsuario) // Nome do seu objeto de usuário
+})
         .then(resposta => {
             if (resposta.status === 201) {
                 botao.style.backgroundColor = 'green';

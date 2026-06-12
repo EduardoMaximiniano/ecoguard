@@ -34,13 +34,13 @@ botaoEnviar.addEventListener('click', (evento) => {
         descricao: descricao
     };
 
-    fetch('http://localhost:3000/api/denuncias', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(novaDenuncia)
-    })
+   fetch('https://ecoguard-2rnw.onrender.com/api/denuncias', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(novaDenuncia) // Aqui você usa o objeto da denúncia
+})
     .then(resposta => {
         if (resposta.ok) {
             alert('Denúncia enviada com sucesso para a nuvem!');
