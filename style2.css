@@ -16,6 +16,9 @@ body {
     color: var(--texto-escuro);
 }
 
+/* ==========================================================================
+   Header / Navegação
+   ========================================================================== */
 header {
     background-color: var(--azul-profundo);
     display: flex;
@@ -36,6 +39,8 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 35px;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
@@ -46,9 +51,13 @@ nav a {
     transition: 0.2s;
 }
 
-nav a:hover { color: var(--ciano-medio); }
+nav a:hover { 
+    color: var(--ciano-medio); 
+}
 
-/* Hero Section Ajustada */
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
 .hero-full {
     position: relative;
     width: 100%;
@@ -60,10 +69,9 @@ nav a:hover { color: var(--ciano-medio); }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.55); /* Escureci um pouco mais para a frase branca ler bem */
+    filter: brightness(0.55);
 }
 
-/* Contêiner que centraliza Logo + Frase */
 .overlay-central {
     position: absolute;
     top: 50%;
@@ -84,12 +92,11 @@ nav a:hover { color: var(--ciano-medio); }
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-/* Estilização da Frase dentro da Imagem */
 .texto-filosofico-hero p {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 26px;
-    color: var(--light-cyan, #a6f2ff); /* Um ciano bem clarinho para suavizar */
+    color: #a6f2ff;
     line-height: 1.4;
     margin: 0 0 10px 0;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
@@ -105,21 +112,19 @@ nav a:hover { color: var(--ciano-medio); }
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* Área de cards abaixo */
 /* ==========================================================================
-   Ajustes e Novas Seções (Objetivo, Valores e Índices)
+   Conteúdo Principal e Grids
    ========================================================================== */
-
 .container-conteudo {
-    max-width: 1000px; /* Aumentei um pouco para caber os grids perfeitamente */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 80px 20px;
     display: flex;
     flex-direction: column;
-    gap: 70px; /* Mais espaço entre as grandes seções */
+    gap: 70px;
+    box-sizing: border-box;
 }
 
-/* Estrutura de blocos de seção */
 .secao-bloco {
     width: 100%;
 }
@@ -153,14 +158,21 @@ nav a:hover { color: var(--ciano-medio); }
     border-radius: 2px;
 }
 
-/* Grid de Valores (3 colunas lado a lado) */
-.grid-valores {
+/* Grids padrão Desktop */
+.grid-valores, 
+.grid-indices, 
+.grid-instrucoes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin-top: 25px;
 }
 
+.grid-indices {
+    margin-top: 35px;
+}
+
+/* Cards */
 .card-valor {
     background-color: var(--azul-profundo);
     padding: 30px;
@@ -186,14 +198,6 @@ nav a:hover { color: var(--ciano-medio); }
     line-height: 1.6;
 }
 
-/* Grid de Índices e Métricas */
-.grid-indices {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 35px;
-}
-
 .indice-box {
     background-color: #ffffff;
     padding: 30px;
@@ -216,24 +220,6 @@ nav a:hover { color: var(--ciano-medio); }
     color: #4a5568;
     line-height: 1.5;
     font-weight: 500;
-}
-
-/* Responsividade Básica (para não quebrar em telas menores) */
-@media (max-width: 768px) {
-    .grid-valores, .grid-indices {
-        grid-template-columns: 1fr;
-    }
-    header {
-        padding: 0 20px;
-    }
-}
-
-/* Estilização da Seção de Instruções e Botão */
-.grid-instrucoes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 25px;
 }
 
 .card-instrucao {
@@ -273,6 +259,7 @@ nav a:hover { color: var(--ciano-medio); }
     line-height: 1.6;
 }
 
+/* Botão de Ação */
 .container-btn-denuncia {
     width: 100%;
     display: flex;
@@ -300,12 +287,8 @@ nav a:hover { color: var(--ciano-medio); }
     box-shadow: 0 10px 25px rgba(0, 102, 204, 0.3);
 }
 
-@media (max-width: 768px) {
-    .grid-instrucoes { grid-template-columns: 1fr; gap: 35px; }
-}
-
 /* ==========================================================================
-   Estilização do Footer Comum (Contatos EcoGuard e SP)
+   Footer
    ========================================================================== */
 footer {
     background-color: var(--azul-profundo);
@@ -321,7 +304,7 @@ footer {
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Coluna de órgãos públicos ligeiramente maior */
+    grid-template-columns: 1fr 1.5fr;
     gap: 40px;
 }
 
@@ -338,13 +321,6 @@ footer {
     line-height: 1.6;
     color: #cbd5e0;
     margin: 0 0 15px 0;
-}
-
-.contato-ficticio {
-    display: block;
-    font-size: 14px;
-    color: var(--azul-claro);
-    margin-bottom: 5px;
 }
 
 .footer-coluna ul {
@@ -364,7 +340,6 @@ footer {
     color: var(--ciano-medio);
 }
 
-/* Faixa inferior de direitos autorais */
 .footer-creditos {
     max-width: 1000px;
     margin: 40px auto 0 auto;
@@ -379,10 +354,101 @@ footer {
     margin: 0;
 }
 
-/* Ajuste rápido para celulares */
+/* ==========================================================================
+   RESPONSIVIDADE GERAL (Telas até 768px - Tablets e Celulares Deitados)
+   ========================================================================== */
 @media (max-width: 768px) {
+    header {
+        padding: 0 25px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .titulo-principal {
+        font-size: 50px;
+        letter-spacing: 3px;
+    }
+
+    .texto-filosofico-hero p {
+        font-size: 20px;
+    }
+
+    .container-conteudo {
+        padding: 50px 20px;
+        gap: 50px;
+    }
+
+    .grid-valores, 
+    .grid-indices, 
+    .grid-instrucoes {
+        grid-template-columns: 1fr; /* Quebra as 3 colunas para virar 1 só */
+        gap: 30px;
+    }
+
     .footer-container {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE EXTREMA (Telas até 480px - Celulares em Pé)
+   ========================================================================== */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column; /* Coloca a logo em cima e o menu embaixo */
+        justify-content: center;
+        gap: 10px;
+        height: auto;
+        padding: 15px 10px;
+    }
+
+    .logo-header {
+        font-size: 20px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero-full {
+        height: calc(85vh - 80px); /* Evita que o texto quebre ou transborde */
+    }
+
+    .titulo-principal {
+        font-size: 34px; /* Diminui para caber na largura inteira sem quebrar palavra */
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .texto-filosofico-hero p {
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+    .texto-filosofico-hero cite {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .secao-bloco h2 {
+        font-size: 24px;
+    }
+
+    .secao-bloco p, 
+    .texto-destaque {
+        font-size: 15px !important;
+    }
+
+    #btn-ir-denuncia {
+        width: 100%; /* Botão ocupa a largura total para ficar fácil de clicar com o polegar */
+        padding: 15px 20px;
+        font-size: 16px;
     }
 }

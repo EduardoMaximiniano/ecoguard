@@ -17,6 +17,9 @@ body {
     color: var(--texto-escuro);
 }
 
+/* ==========================================================================
+   Header / Navegação
+   ========================================================================== */
 header {
     background-color: var(--azul-profundo);
     display: flex;
@@ -42,11 +45,14 @@ header {
     letter-spacing: 1px;
 }
 
-/* Container do Formulário */
+/* ==========================================================================
+   Container do Formulário e Wrapper
+   ========================================================================== */
 .container-denuncia {
     display: flex;
     justify-content: center;
     padding: 50px 20px;
+    box-sizing: border-box;
 }
 
 .form-wrapper {
@@ -57,6 +63,7 @@ header {
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid #e2e8f0;
+    box-sizing: border-box;
 }
 
 .form-wrapper h2 {
@@ -72,7 +79,9 @@ header {
     line-height: 1.5;
 }
 
-/* Grupos de inputs */
+/* ==========================================================================
+   Elementos de Formulário e Inputs
+   ========================================================================== */
 .campo-grupo {
     display: flex;
     flex-direction: column;
@@ -109,20 +118,55 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
 }
 
-/* Inputs Duplos na Mesma Linha (Coordenadas) */
 .linha-dupla {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-/* Customização do Select */
 select {
     cursor: pointer;
     background-color: white;
 }
 
-/* Botoes */
+/* ==========================================================================
+   Área de Upload de Arquivos
+   ========================================================================== */
+.upload-container {
+    border: 2px dashed var(--azul-vibrante);
+    background-color: var(--branco-gelo);
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.upload-container:hover {
+    background-color: #e2e8f0;
+}
+
+.upload-container input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-texto {
+    font-size: 14px;
+    color: var(--azul-marinho);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Botões de Ação
+   ========================================================================== */
 .botoes-container {
     display: flex;
     justify-content: flex-end;
@@ -167,57 +211,66 @@ button {
     box-shadow: 0 5px 15px rgba(0, 51, 128, 0.2);
 }
 
-@media (max-width: 480px) {
-    .linha-dupla { grid-template-columns: 1fr; gap: 0; }
-    .botoes-container { flex-direction: column-reverse; }
-    button { width: 100%; }
-}
+/* ==========================================================================
+   RESPONSIVIDADE GERAL (Telas até 768px - Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 0 25px;
+    }
 
-/* Adicione ou substitua estas regras no seu arquivo style-denuncia.css */
-
-/* Estilização da área de Upload */
-.upload-container {
-    border: 2px dashed var(--azul-vibrante);
-    background-color: var(--branco-gelo);
-    padding: 30px 20px;
-    border-radius: 8px;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.upload-container:hover {
-    background-color: #e2e8f0;
-}
-
-/* Esconde o botão padrão feio do navegador e estica o input por toda a caixa */
-.upload-container input[type="file"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.upload-texto {
-    font-size: 14px;
-    color: var(--azul-marinho);
-    font-weight: 600;
-    margin: 0;
-}
-
-/* Ajuste na responsividade da nova estrutura */
-@media (max-width: 480px) {
     .form-wrapper {
-        padding: 20px;
+        padding: 30px;
     }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE EXTREMA (Telas até 480px - Celulares)
+   ========================================================================== */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        height: auto;
+        padding: 12px 10px;
+    }
+
+    .logo-header {
+        font-size: 18px;
+    }
+
+    .sub-header-title {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+
+    .container-denuncia {
+        padding: 20px 10px; /* Reduz espaçamento externo para ganhar espaço lateral */
+    }
+
+    .form-wrapper {
+        padding: 20px; /* Menos margem interna para os campos respirarem */
+        border-radius: 12px;
+    }
+
+    .form-wrapper h2 {
+        font-size: 22px;
+    }
+
+    .linha-dupla {
+        grid-template-columns: 1fr; /* Força latitude e longitude a virarem colunas únicas */
+        gap: 0; /* O margin-bottom de .campo-grupo já gerencia o espaço */
+    }
+
     .botoes-container {
-        flex-direction: column-reverse;
+        flex-direction: column-reverse; /* Empilha: "Enviar" fica no topo do "Cancelar" */
+        gap: 12px;
+        padding-top: 20px;
     }
+
     button {
-        width: 100%;
+        width: 100%; /* Botões ocupam 100% da largura da caixinha */
+        padding: 15px 20px;
     }
 }

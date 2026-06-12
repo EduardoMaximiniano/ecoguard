@@ -2,40 +2,60 @@ const nomeRio = document.getElementById('nome-rio');
 const municipioRio = document.getElementById('municipio-rio');
 const localizacaoCasual = document.getElementById('localizacao-casual');
 const tipoPoluicao = document.getElementById('tipo-poluicao');
-const fotosEvidencia = document.getElementById('fotos-evidencia');
 const descricaoCrime = document.getElementById('descricao-crime');
 
 const botaoEnviar = document.getElementById('btn-enviar-denuncia');
+const botaoVoltar = document.getElementById("btn-cancelar");
 
-const denuncias = [];
+botaoVoltar.addEventListener('click', () => {
+    window.location.href = '../inicio.html';
+});
 
 botaoEnviar.addEventListener('click', (evento) => {
-    
     evento.preventDefault(); 
 
     const rio = nomeRio.value;
     const municipio = municipioRio.value;
     const localizacao = localizacaoCasual.value;
     const poluicao = tipoPoluicao.value;
-    const fotos = fotosEvidencia.files; 
     const descricao = descricaoCrime.value;
 
-    if (municipio === '' || localizacao === '' || poluicao === '' || fotos.length === 0) {
+    // Removida a trava obrigatória de fotos para o JSON não quebrar
+    if (municipio === '' || localizacao === '' || poluicao === '') {
         alert('Por favor, preencha todos os campos obrigatórios (*)!');
-    } else {
-        
-        const novaDenuncia = {
-            rio: rio,
-            municipio: municipio,
-            localizacao: localizacao,
-            tipoPoluicao: poluicao,
-            totalFotos: fotos.length, 
-            descricao: descricao
-        };
-
-        denuncias.push(novaDenuncia);
-        console.table(denuncias);
-
-        alert('Denúncia protocolada com sucesso no sistema (simulação)!');
+        return; // Para a execução aqui se faltar dados
     }
+
+    const novaDenuncia = {
+        rio: rio,
+        municipio: municipio,
+        localizacao: localizacao,
+        tipoPoluicao: poluicao,
+        descricao: descricao
+    };
+
+    fetch('http://localhost:3000/api/denuncias', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(novaDenuncia)
+    })
+    .then(resposta => {
+        if (resposta.ok) {
+            alert('Denúncia enviada com sucesso para a nuvem!');
+            // Limpa os campos após o envio
+            nomeRio.value = '';
+            municipioRio.value = '';
+            localizacaoCasual.value = '';
+            tipoPoluicao.value = '';
+            descricaoCrime.value = '';
+        } else {
+            alert('Erro ao enviar a denúncia ao servidor.');
+        }
+    })
+    .catch(erro => {
+        console.error('Erro na conexão:', erro);
+        alert('Não foi possível conectar ao servidor.');
+    });
 });

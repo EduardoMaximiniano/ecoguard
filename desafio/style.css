@@ -1,22 +1,37 @@
 /* Paleta Ocean Blue Serenity aplicada */
+:root {
+    --branco-gelo: #f4f6f9;
+    --azul-profundo: #000040;
+    --azul-marinho: #003380;
+    --azul-vibrante: #0066cc;
+    --ciano-medio: #33ccff;
+    --texto-escuro: #1a202c;
+    --azul-acao: #0099ff;
+    --azul-claro-radiante: #a6f2ff;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f9; /* O azul mais escuro e profundo da imagem */
+    background-color: var(--branco-gelo);
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 40px 20px;
     margin: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
 }
 
-/* Container do Formulário */
+/* ==========================================================================
+   Container do Formulário
+   ========================================================================== */
 .cadastro-container {
-    background-color: #003380; /* Segundo tom da paleta (azul intermediário) */
+    background-color: var(--azul-marinho);
     padding: 35px;
     border-radius: 16px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-    border: 1px solid #0044cc; /* Borda sutil para dar acabamento */
+    border: 1px solid #0044cc;
     width: 100%;
     max-width: 420px;
     box-sizing: border-box;
@@ -24,7 +39,7 @@ body {
 
 /* Títulos e Textos */
 .cadastro-header h2 {
-    color: #a6f2ff; /* O azul mais claro e radiante da ponta direita */
+    color: var(--azul-claro-radiante);
     margin: 0 0 8px 0;
     text-align: center;
     font-size: 26px;
@@ -32,17 +47,19 @@ body {
 }
 
 .cadastro-header p {
-    color: #33ccff; /* Tom de ciano médio da paleta */
+    color: var(--ciano-medio);
     font-size: 14px;
     text-align: center;
     margin: 0 0 30px 0;
 }
 
-/* Inputs e Labels */
+/* ==========================================================================
+   Inputs e Labels
+   ========================================================================== */
 .form-group label {
     display: block;
     font-size: 12px;
-    color: #a6f2ff;
+    color: var(--azul-claro-radiante);
     margin-bottom: 6px;
     font-weight: 600;
     text-transform: uppercase;
@@ -53,8 +70,8 @@ input {
     width: 100%;
     padding: 12px 14px;
     margin-bottom: 22px;
-    background-color: #000040; /* Fundo dos inputs usa o tom mais escuro */
-    border: 2px solid #0066cc; /* Azul intermediário vibrante */
+    background-color: var(--azul-profundo);
+    border: 2px solid var(--azul-vibrante);
     border-radius: 8px;
     color: #ffffff;
     font-size: 15px;
@@ -64,15 +81,17 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #33ccff; /* Brilha no tom ciano médio ao focar */
+    border-color: var(--ciano-medio);
     box-shadow: 0 0 8px rgba(51, 204, 255, 0.2);
 }
 
-/* Botão de Ação Principal */
+/* ==========================================================================
+   Botão de Ação Principal
+   ========================================================================== */
 button {
     width: 100%;
     padding: 15px;
-    background-color: #0099ff; /* O azul vibrante do meio da paleta */
+    background-color: var(--azul-acao);
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -85,7 +104,7 @@ button {
 }
 
 button:hover {
-    background-color: #33ccff; /* Transiciona para o azul mais claro ao passar o mouse */
+    background-color: var(--ciano-medio);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(51, 204, 255, 0.4);
 }
@@ -98,16 +117,18 @@ button:disabled {
     box-shadow: none;
 }
 
-/* Lista de Usuários (Feedback) */
+/* ==========================================================================
+   Lista de Usuários (Feedback / Cards de retorno)
+   ========================================================================== */
 .feedback-sistema {
     margin-top: 35px;
-    border-top: 1px solid #0066cc;
+    border-top: 1px solid var(--azul-vibrante);
     padding-top: 25px;
 }
 
 .feedback-sistema h3 {
     font-size: 15px;
-    color: #a6f2ff;
+    color: var(--azul-claro-radiante);
     margin-bottom: 18px;
 }
 
@@ -118,11 +139,11 @@ button:disabled {
 }
 
 .usuario-card {
-    background-color: #000040;
+    background-color: var(--azul-profundo);
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 12px;
-    border-left: 4px solid #0099ff;
+    border-left: 4px solid var(--azul-acao);
 }
 
 .usuario-card p {
@@ -132,5 +153,43 @@ button:disabled {
 }
 
 .usuario-card strong {
-    color: #33ccff;
+    color: var(--ciano-medio);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Telas até 480px - Smartphones)
+   ========================================================================== */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px; /* Margem menor nas bordas externas do celular */
+    }
+
+    .cadastro-container {
+        padding: 25px 20px; /* Reduz espaço interno para ganhar área útil */
+        border-radius: 12px;
+    }
+
+    .cadastro-header h2 {
+        font-size: 22px; /* Reduz tamanho do título para não quebrar feio */
+    }
+
+    .cadastro-header p {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 11px 12px;
+        margin-bottom: 18px; /* Compacta de leve os espaços dos campos */
+    }
+
+    button {
+        padding: 14px;
+        font-size: 15px;
+    }
+    
+    .usuario-card p {
+        font-size: 13px; /* Melhora a leitura dos feedbacks gerados */
+    }
 }

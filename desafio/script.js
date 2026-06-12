@@ -36,7 +36,7 @@ botao.addEventListener('click', (evento) => {
             endereco: enderecoo
         }
 
-        fetch('http://10.0.0.92:3000/cadastrar', {
+        fetch('http://localhost:3000/cadastrar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ botao.addEventListener('click', (evento) => {
 
         .catch(erro => {
             console.error('erro na rede:', erro);
-            alert('Não foi possível conectar ao servdior back-end.')
+            alert('Não foi possível conectar ao servidor back-end.')
         })
 
     }
