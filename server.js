@@ -57,6 +57,9 @@ app.post('/cadastrar', (req, res) => {
     });
 });
 
+    // Avisa ao Express para servir todos os arquivos da pasta raiz (HTML, CSS, Imagens) de forma pública
+ app.use(express.static(__dirname));
+
 // Rota de Envio de Denúncias
 app.post('/api/denuncias', (req, res) => {
     const { rio, municipio, localizacao, tipoPoluicao, descricao } = req.body;
