@@ -1,18 +1,33 @@
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
+const path = require('path');
 
 const app = express();
+
+// ==========================================================================
+// CONFIGURAÇÕES E MIDDLEWARES (Sempre no topo)
+// ==========================================================================
 app.use(cors());
 app.use(express.json());
 
-// Conexão direta com a sua Render
+// Libera todos os arquivos da pasta do projeto (HTML, CSS, JS, Imagens) para o navegador conseguir ler
+app.use(express.static(__dirname));
+
+// Rota raiz: Entrega o arquivo inicial assim que alguém acessa o link seco
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'inicio.html'));
+});
+
+// ==========================================================================
+// CONEXÃO COM O BANCO DE DADOS (POSTGRESQL - RENDER)
+// ==========================================================================
 const conexao = new Pool({
     connectionString: 'postgresql://eduardo:3uX7x1FfFUXF7nBD3mV4B3IkJERVDSBw@dpg-d8lo5ja8qa3s73alvmkg-a.oregon-postgres.render.com/ecoguard_db',
     ssl: { rejectUnauthorized: false }
 });
 
-// Força a criação das duas tabelas na inicialização de forma separada
+// Inicialização do Banco e Criação Automática das Tabelas
 conexao.connect()
     .then(() => {
         console.log('Conectado ao banco na Render!');
@@ -43,8 +58,12 @@ conexao.connect()
     })
     .catch(erro => console.error('Erro ao conectar na nuvem:', erro));
 
-// Rota de Cadastro de Usuários
-app.post('/cadastrar', (req, res) => {
+// ==========================================================================
+// ROTAS DA API (Sistemas de Envio e Consulta)
+// ==========================================================================
+
+// Rota de Cadastro de Usuários (Padronizada com /api)
+app.post('/api/cadastrar', (req, res) => {
     const { nome, idade, email, cpf, endereco } = req.body;
     const comandoSQL = 'INSERT INTO usuarios (nome, idade, email, cpf, endereco) VALUES ($1, $2, $3, $4, $5)';
 
@@ -56,9 +75,6 @@ app.post('/cadastrar', (req, res) => {
         return res.status(201).json({ mensagem: 'Usuário cadastrado com sucesso!' });
     });
 });
-
-    // Avisa ao Express para servir todos os arquivos da pasta raiz (HTML, CSS, Imagens) de forma pública
- app.use(express.static(__dirname));
 
 // Rota de Envio de Denúncias
 app.post('/api/denuncias', (req, res) => {
@@ -74,14 +90,17 @@ app.post('/api/denuncias', (req, res) => {
     });
 });
 
-    // Rota rápida para você ver suas denúncias direto no navegador
+// Rota de Consulta rápida de denúncias
 app.get('/ver-denuncias', (req, res) => {
     conexao.query('SELECT * FROM denuncias', (erro, resultado) => {
         if (erro) return res.status(500).json(erro);
-        return res.json(resultado.rows); // Mostra as linhas salvas
+        return res.json(resultado.rows);
     });
 });
 
+// ==========================================================================
+// INICIALIZAÇÃO DO SERVIDOR
+// ==========================================================================
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
